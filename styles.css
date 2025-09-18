@@ -1,0 +1,515 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --lemon-green: #32CD32;
+    --dark-green: #228B22;
+    --black: #000000;
+    --white: #FFFFFF;
+    --light-gray: #F8F8F8;
+    --dark-gray: #333333;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, var(--lemon-green) 0%, var(--dark-green) 100%);
+    min-height: 100vh;
+    color: var(--dark-gray);
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    background: var(--white);
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* Landing Page Styles */
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--lemon-green) 0%, var(--dark-green) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.landing-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='15'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+}
+
+.landing-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.church-logo {
+    width: 80px;
+    height: 80px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.church-logo svg {
+    width: 50px;
+    height: 50px;
+    fill: var(--lemon-green);
+}
+
+.church-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.church-title h1 {
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.church-title p {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.hymn-book-cover {
+    background: linear-gradient(145deg, var(--white) 0%, var(--light-gray) 100%);
+    border-radius: 15px;
+    padding: 30px 20px;
+    margin: 20px 0 40px 0;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    text-align: center;
+    border: 3px solid var(--white);
+    position: relative;
+    width: 280px;
+}
+
+.hymn-book-cover::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, var(--lemon-green), var(--dark-green));
+    border-radius: 18px;
+    z-index: -1;
+}
+
+.book-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--lemon-green);
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.book-subtitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 20px;
+}
+
+.musical-notes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+.musical-notes span {
+    font-size: 2rem;
+    color: var(--dark-green);
+    animation: float 3s ease-in-out infinite;
+}
+
+.musical-notes span:nth-child(2) { animation-delay: 0.5s; }
+.musical-notes span:nth-child(3) { animation-delay: 1s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.landing-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 280px;
+}
+
+.primary-btn {
+    background: var(--white);
+    color: var(--dark-green);
+    border: none;
+    padding: 15px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.primary-btn:hover {
+    background: var(--light-gray);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.secondary-btn {
+    background: rgba(255,255,255,0.2);
+    color: var(--white);
+    border: 2px solid var(--white);
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.secondary-btn:hover {
+    background: var(--white);
+    color: var(--dark-green);
+}
+
+/* Main App Styles */
+.main-app {
+    display: none;
+}
+
+.header {
+    background: linear-gradient(135deg, var(--lemon-green) 0%, var(--dark-green) 100%);
+    color: var(--white);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.header p {
+    opacity: 0.9;
+    font-size: 0.85rem;
+}
+
+.back-to-home {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-bar {
+    padding: 20px;
+    background: var(--light-gray);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--lemon-green);
+    box-shadow: 0 0 0 3px rgba(50, 205, 50, 0.1);
+}
+
+.tabs {
+    display: flex;
+    background: var(--white);
+    border-bottom: 1px solid #e2e8f0;
+    overflow-x: auto;
+}
+
+.tab {
+    flex: 1;
+    min-width: 100px;
+    padding: 12px 8px;
+    text-align: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748b;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.tab.active {
+    color: var(--dark-green);
+    border-bottom: 2px solid var(--lemon-green);
+    background: #f1f5f9;
+    font-weight: 600;
+}
+
+.content {
+    padding: 0;
+    min-height: 60vh;
+}
+
+.hymn-list {
+    list-style: none;
+}
+
+.hymn-item {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hymn-item:hover {
+    background: var(--light-gray);
+    padding-left: 25px;
+}
+
+.hymn-item:active {
+    background: #e2e8f0;
+}
+
+.hymn-number {
+    background: var(--lemon-green);
+    color: var(--white);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    min-width: 35px;
+    text-align: center;
+}
+
+.hymn-title {
+    flex: 1;
+    margin-left: 12px;
+    font-weight: 500;
+    color: var(--black);
+}
+
+.hymn-category {
+    font-size: 11px;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.hymn-detail {
+    display: none;
+    padding: 20px;
+    background: var(--white);
+    min-height: 100vh;
+}
+
+.hymn-detail.active {
+    display: block;
+}
+
+.back-btn {
+    background: var(--light-gray);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    color: var(--dark-green);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #e2e8f0;
+}
+
+.hymn-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+.hymn-header h2 {
+    color: var(--dark-green);
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.hymn-meta {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.verse {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: var(--light-gray);
+    border-radius: 12px;
+    border-left: 4px solid var(--lemon-green);
+}
+
+.verse-label {
+    font-weight: 600;
+    color: var(--dark-green);
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.verse-text {
+    line-height: 1.7;
+    color: var(--black);
+    font-size: 1rem;
+}
+
+.favorites {
+    display: none;
+    padding: 20px;
+}
+
+.favorites.active {
+    display: block;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #64748b;
+}
+
+.empty-state h3 {
+    margin-bottom: 10px;
+    color: var(--black);
+}
+
+.favorite-btn {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.favorite-btn.active {
+    color: #ef4444;
+}
+
+.install-banner {
+    background: linear-gradient(135deg, var(--lemon-green) 0%, var(--dark-green) 100%);
+    color: var(--white);
+    padding: 15px 20px;
+    text-align: center;
+    display: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.install-banner.show {
+    display: block;
+}
+
+.font-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+
+.font-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: var(--lemon-green);
+    color: var(--white);
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.font-btn:hover {
+    background: var(--dark-green);
+    transform: scale(1.1);
+}
+
+.category-section {
+    display: none;
+    padding: 20px;
+}
+
+.category-section.active {
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .container {
+        max-width: 100%;
+    }
+    
+    .hymn-book-cover {
+        width: 260px;
+        padding: 25px 15px;
+    }
+    
+    .book-title {
+        font-size: 1.6rem;
+    }
+    
+    .tabs {
+        font-size: 11px;
+    }
+}
+
+
+
+
